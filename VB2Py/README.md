@@ -1,4 +1,4 @@
-VB2Py旨在快速构建GUI，结合SQLite一起使用可以快速开发桌面小软件
+VB2Py旨在使用tkinter快速构建GUI，结合SQLite一起使用可以快速开发桌面小软件
 
 主要参考GitHub项目：https://github.com/cdhigh/tkinter-designer
 
