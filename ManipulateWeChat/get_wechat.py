@@ -1,5 +1,6 @@
 # 通过itchat获取微信好友头像
 import itchat
+import csv
 import os
 from PIL import Image  # 3.x版本的Python应该安装pillow库
 from math import sqrt
@@ -57,9 +58,27 @@ def joint_head_images(path_of_head_images_folder):
     newImage.save("final.jpg")
 
 
+def get_wechat_friends_info(outputfilename="friends_info.csv"):
+    """
+    获取微信好友信息，并写入csv文件
+    默认文件名为friends_info.csv
+    """
+    itchat.auto_login(hotReload=False)
+    friends = itchat.get_friends(update=True)
+    headers = list(dict(friends[1]))
+    with open(outputfilename, "w", encoding="utf-8-sig", newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(headers)
+        for friend in friends[1:]:
+            values = list(dict(friend).values())
+            print(values)
+            writer.writerow(values)
+
+
 def main():
-    get_head_images()
-    joint_head_images(r"D:\git_repo\lazy4Power\ManipulateWeChat\HeadImages\\")
+    #get_head_images()
+    #joint_head_images(r"D:\git_repo\lazy4Power\ManipulateWeChat\HeadImages\\")
+    get_wechat_friends_info()
 
 
 if __name__ == '__main__':
