@@ -29,6 +29,7 @@ def get_head_images():
 
 def joint_head_images(path_of_head_images_folder):
     """"
+    用于将微信头像拼接成一张大图
     :path_of_head_images_folder:存放头像图片的文件夹路径
     """
     pathList = []
