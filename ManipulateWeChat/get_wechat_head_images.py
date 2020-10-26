@@ -31,7 +31,6 @@ def joint_head_images(path_of_head_images_folder):
     :path_of_head_images_folder:存放头像图片的文件夹路径
     """
     pathList = []
-    #headImgPath = r".\HeadImages"  # 当前目录的HeadImages目录
     headImgPath = path_of_head_images_folder
     for item in os.listdir(headImgPath):
         imgPath = os.path.join(headImgPath, item)
@@ -39,13 +38,13 @@ def joint_head_images(path_of_head_images_folder):
 
     total = len(pathList)
     line = int(sqrt(total))
-    NewImage = Image.new('RGB', (128 * line, 128 * line))
+    newImage = Image.new('RGB', (128 * line, 128 * line))
     x = y = 0
     for item in pathList:
         try:
             img = Image.open(item)
             img = img.resize((128, 128), Image.ANTIALIAS)
-            NewImage.paste(img, (x * 128, y * 128))
+            newImage.paste(img, (x * 128, y * 128))
             x += 1
         except IOError:
             print("第%d行,%d列文件读取失败！IOError:%s" % (y, x, item))
@@ -55,14 +54,13 @@ def joint_head_images(path_of_head_images_folder):
             y += 1
         if (x + line * y) == line * line:
             break
-    NewImage.save("final.jpg")
-
-
+    newImage.save("final.jpg")
 
 
 def main():
     get_head_images()
     joint_head_images(r"D:\git_repo\lazy4Power\ManipulateWeChat\HeadImages\\")
+
 
 if __name__ == '__main__':
     main()
