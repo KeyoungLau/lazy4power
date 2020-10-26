@@ -1,5 +1,7 @@
-# 学习使用itchat，微信的一个开源接口
-import itchat, time
+# 学习使用itchat，微信网页版的一个开源接口
+# 项目地址：https://github.com/littlecodersh/ItChat
+import itchat
+import time
 from itchat.content import *
 
 @itchat.msg_register([TEXT, MAP, CARD, NOTE, SHARING])
