@@ -23,9 +23,9 @@ def data_pre_processing(worksheet):
     oranges = []
     for rows in range(len(data)):
         tem_lst = [i.value for i in data[rows]]  # 列表解析，cool，优雅
-        tem_lst =list(filter(None, tem_lst))  #   # 剔除掉tem_lst中的None值
+        tem_lst =list(filter(None, tem_lst))  # 剔除掉tem_lst中的None值
         tem_lst = [str(i) for i in tem_lst]  # 把tem_lst转化为纯数字列表,避免数字没有下标的问题
-        oranges.append(tem_lst)  #  把tem_lst加入到oranges列表中
+        oranges.append(tem_lst)  # 把tem_lst加入到oranges列表中
     #print(oranges)
     return oranges
     #从头抽出第一条数据，就命名为apple吧
@@ -46,10 +46,11 @@ yes_or_no_lst = []
 fill_in__blank_lst = []
 unrecognized_lst = []  # 五个菜篮子，第五个菜篮子unrecognized_lst用于存放不能识别的数据
 
+
 def judge_types(apples):
     """
     传入列表，首先判断是否输入extra类型，再判断属于哪种题型（单选，多选，判断，填空），至于如何返回，还得好好考虑考虑
-    :param list:
+    :param apples:
     :return:
     """
     # 调用四个全局变量储存结果
