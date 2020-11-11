@@ -1,0 +1,13 @@
+# python提供了一些对字符串处理的内置函数
+
+
+print(chr(1010))
+# ord()函数，ord是ordinal的缩写，ordinal有序数，序号的意思
+a = ord("刘")
+print(a)
+# hexadecimal是十六进制
+# octonary是八进制
+print(chr(0x025b))
+print(chr(0x00a5))
+print(chr(0x266b))
+print(chr(0x1f43f))

@@ -1,0 +1,5 @@
+test = ord("a") + ord("a") - ord("a")
+print(test)
+print(ord("a"))
+print(97 % 26)
+print("手机", 99)
