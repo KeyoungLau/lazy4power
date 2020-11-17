@@ -44,6 +44,7 @@ def parse_page(response):
             data.append(pub_time)
             # 获取评论数,并添加到列表中
             comment_count = li.xpath('./p[@class="search_star_line"]/a/text()')[0]
+            comment_count = comment_count.replace('条评论', '')  # 去掉后面的“条评论"
             data.append(comment_count)
             # 获取书本的简介,并添加到列表中.由于有些书本没有简介，所以要用try
             commodity_detail = li.xpath('./p[@class="detail"]/text()')[0]
@@ -59,11 +60,11 @@ def save_data(data):
 
 
 
-fp = open('mysql.csv', 'w', encoding='utf-8-sig', newline='')
+fp = open('python.csv', 'w', encoding='utf-8-sig', newline='')
 writer = csv.writer(fp)
 header = ['标题', '链接', '价格', '作者', '出版时间', '评论数', '简介']
 writer.writerow(header)
-key = 'mysql'  # input('Please input key:')
+key = 'python'  # input('Please input key:')
 get_page(key)
 fp.close()
 
